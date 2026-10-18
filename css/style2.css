@@ -439,12 +439,12 @@ body {
 /* cat */
 .pic2 {
     position: absolute;
-    right: 105px;
+    right: 88px;
     top: 15px;
     width: 115px;
 }
 
-/* cirno EVERYWHERE AHAHAHAHA */
+/* cirno EVERYWHERE AHAHAHAHA (but n0) */
 .fumo-about {
     position: absolute;
     right: 1px;
@@ -462,8 +462,8 @@ body {
 
 #enter-screen {
   position: fixed;
-  inset: 0;                      /* covers the whole window */
-  z-index: 9999;                 /* above everything, including stickers */
+  inset: 0;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -477,7 +477,7 @@ body {
 
 #enter-screen.hide {
   opacity: 0;
-  visibility: hidden;            /* also stops it from blocking clicks */
+  visibility: hidden;
 }
 
 .enter-title {
