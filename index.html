@@ -8,32 +8,91 @@
 <meta name="keywords" content="kekobade, ek9no, JS, JavaScript, discord, nes, emulators, 90s, projects, blue, neocities, personal">
 <meta name="author" content="kekobade">
 <link rel="icon" href="img/keko.png">
+
 <script>
 document.documentElement.dataset.theme = localStorage.getItem('theme') || 
 (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 </script>
 
-  <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 
+<style>
+:root {
+--font-display: 'Press Start 2P', ui-monospace, monospace;
+--font-body: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
 
-<link rel="stylesheet" href="css/style2.css">
-<link rel="stylesheet" href="css/decorations.css">
-<script src="js/theme.js"></script>
+:root {
+color-scheme: dark;
+--bg: #0b0e1a;
+--panel: #151a35;
+--text: #d8dcff;
+--text-dim: #8b91c4;
+--heading: #fdf6d8;
+--cat: #ff6ad5;
+--glow: 0 0 12px rgba(243, 230, 168, 0.5);
+--selection: rgba(143, 211, 255, 0.28);
+}
 
+:root[data-theme="light"] {
+color-scheme: light;
+--bg: #f6f3ea;
+--panel: #ffffff;
+--text: #1b1f3b;
+--text-dim: #5a5f8a;
+--heading: #1b1f3b;
+--cat: #d6249f;
+--glow: none;
+--selection: rgba(40, 100, 200, 0.25);
+}
+
+::selection { background: var(--selection); color: var(--text); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;}
+
+html {scroll-behavior: smooth; overflow-x: clip; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;}
+
+body.locked { overflow: hidden; }
+
+#x {position: fixed; top: 0; left: 0; z-index: 10000; pointer-events: none; will-change: transform; animation: x 7s linear infinite alternate;}
+
+#x pre { font-family: var(--font-body); font-size: 24px; line-height: 1.2; color: var(--cat); will-change: transform, filter; animation: y 5s linear infinite alternate, h 30s linear infinite;} 
+
+@keyframes x { to { transform: translateX(calc(100vw - 100%)); } }
+@keyframes y { to { transform: translateY(calc(100vh - 100%)); } }
+@keyframes h { to { filter: hue-rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+#x, #x pre { animation: none; }}
+
+#enter-screen {position: fixed;inset: 0;z-index: 9999;display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 20px;background: var(--bg);color: var(--heading);cursor: pointer;text-align: center;padding: 20px;transition: opacity 0.6s ease, visibility 0.6s ease;}
+
+#enter-screen.hide {opacity: 0;visibility: hidden;}
+.enter-title {font-family: var(--font-display);font-size: 22px;text-shadow: var(--glow);}
+.enter-hint {font-size: 13px;color: var(--text-dim);animation: blink 1.2s steps(2, start) infinite;}
+@keyframes blink { to { visibility: hidden; } }
+</style>
 </head>
 
-<body class="home-page">
-  <div class="page">
-  <header class="hero">
+<body class="home-page locked">
+  <!-- 4chan reference cat :3 -->
+<div id="x" aria-hidden="true"><pre>ᗜˬᗜ</pre></div>
+<div id="enter-screen">
+<p class="enter-title">EK9NO'S PAGE</p>
+<p class="enter-hint">[ UNDER MAINTENANCE :3 ]</p>
+<p>For more Interactivity, Switch to Linux Desktop (hehe)</p>
+</div>
 
-  <div id="enter-screen">
-  <p class="enter-title">EK9NO'S PAGE</p>
-  <p class="enter-hint">[ UNDER MAINTENANCE :3 ]</p>
-  <p>For more Interactivity, Switch to Linux Desktop (hehe ᗜˬᗜ)</p>
-  </div>
-  
+<script>
+const enter = document.getElementById('enter-screen');
+enter.addEventListener('click', () => {
+enter.classList.add('hide');
+document.body.classList.remove('locked');
+});
+</script>
 </body>
 </html>
