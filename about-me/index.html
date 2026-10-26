@@ -74,21 +74,32 @@
         <br>
 </div>
 
-<audio id="music" src="/music/mice_on_venus.mp3" loop preload="auto"></audio>
+<audio id="music" preload="auto"></audio>
+
 <script>
 (() => {
-  const music = document.getElementById('music');
-  music.volume = 0.4;                       // 0 to 1
+  const PLAYLIST = [
+    "/music/I_guess_I'm_in_love.flac",
+    "/music/mice_on_venus.mp3",
+  ];
 
-  const events = ['pointerdown', 'keydown', 'touchstart'];
-  const start = () => {
-    music.play().then(() => {
-      events.forEach(ev => removeEventListener(ev, start));
-    }).catch(() => {});                     // still blocked: wait for the next interaction
+  const audio = document.getElementById('music');
+  let i = 0;
+
+  const play = n => {
+    i = (n + PLAYLIST.length) % PLAYLIST.length;
+    audio.src = encodeURI(PLAYLIST[i]);
+    audio.play().catch(() => {});
   };
 
-  // try right away (works in some browsers), otherwise wait for the first interaction
-  music.play().catch(() => events.forEach(ev => addEventListener(ev, start)));
+  audio.addEventListener('ended', () => play(i + 1));
+
+ play(0);
+  const start = () => {
+    if (audio.paused) audio.play().catch(() => {});
+    ['click', 'touchstart', 'keydown'].forEach(e => removeEventListener(e, start));
+  };
+  ['click', 'touchstart', 'keydown'].forEach(e => addEventListener(e, start));
 })();
 </script>
 </body>
