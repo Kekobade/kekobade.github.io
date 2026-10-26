@@ -1,84 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✧ ek9no's Page ✧</title>
+<title>✧ ek9no's Page | Home ✧</title>
 <meta name="description" content="Welcome To ek9no's Playground">
 <meta name="keywords" content="kekobade, ek9no, JS, JavaScript, discord, nes, emulators, 90s, projects, blue, neocities, personal">
 <meta name="author" content="kekobade">
-<link rel="icon" href="img/keko.png">
+<link rel="icon" href="keko.png">
 
-<script>
-document.documentElement.dataset.theme = localStorage.getItem('theme') || 
-(matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
-
-<style>
-:root {
---font-display: 'Press Start 2P', ui-monospace, monospace;
---font-body: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-}
-
-:root {
-color-scheme: dark;
---bg: #0b0e1a;
---panel: #151a35;
---text: #d8dcff;
---text-dim: #8b91c4;
---heading: #fdf6d8;
---cat: #ff6ad5;
---glow: 0 0 12px rgba(243, 230, 168, 0.5);
---selection: rgba(143, 211, 255, 0.28);
-}
-
-:root[data-theme="light"] {
-color-scheme: light;
---bg: #f6f3ea;
---panel: #ffffff;
---text: #1b1f3b;
---text-dim: #5a5f8a;
---heading: #1b1f3b;
---cat: #d6249f;
---glow: none;
---selection: rgba(40, 100, 200, 0.25);
-}
-
-::selection { background: var(--selection); color: var(--text); }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;}
-html {scroll-behavior: smooth; overflow-x: clip; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-body {min-height: 100vh; overflow-x: clip; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;}
-body.locked { overflow: hidden; }
-#x {position: fixed; top: 0; left: 0; z-index: 10000; pointer-events: none; will-change: transform; animation: x 7s linear infinite alternate;}
-#x pre { font-family: var(--font-body); font-size: 24px; line-height: 1.2; color: var(--cat); will-change: transform, filter; animation: y 5s linear infinite alternate, h 30s linear infinite;} 
-
-@keyframes x { to { transform: translateX(calc(100vw - 100%)); } }
-@keyframes y { to { transform: translateY(calc(100vh - 100%)); } }
-@keyframes h { to { filter: hue-rotate(360deg); } }
-
-@media (prefers-reduced-motion: reduce) {
-#x, #x pre { animation: none; }}
-
-#enter-screen {position: fixed;inset: 0;z-index: 9999;display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 20px;background: var(--bg);color: var(--heading);cursor: pointer;text-align: center;padding: 20px;transition: opacity 0.6s ease, visibility 0.6s ease;}
-#enter-screen.hide {opacity: 0;visibility: hidden;}
-.enter-title {font-family: var(--font-display);font-size: 22px;text-shadow: var(--glow);}
-.enter-hint {font-size: 13px;color: var(--text-dim);animation: blink 1.2s steps(2, start) infinite;}
-@keyframes blink { to { visibility: hidden; } }
-</style>
+<link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="home-page locked">
-  <!-- 4chan reference cat :3 -->
-<div id="x" aria-hidden="true"><pre>ᗜˬᗜ</pre></div>
-<div id="enter-screen">
-<p class="enter-title">EK9NO'S PAGE</p>
-<p class="enter-hint">[ UNDER MAINTENANCE :3 ]</p>
-<p>For more Interactivity, Switch to Linux Desktop (hehe)</p>
-</div>
+  <body>
+<a class="skip-to" href="#home-link">[Home?]</a>
+<button id="menu-toggle" type="button" aria-controls="side" aria-expanded="false">CONFIG</button>
+<div id="menu-backdrop"></div>
 
+<div class="page">
+<header class="hero">
+    <button class="theme-toggle" type="button" aria-label="Next background" title="Next background"><span class="dot"></span></button>
+<a href="/" id="logo-link"><div class="site-title">EK9NO'S PAGE</div></a>
+</header>
+
+  <main>
+<noscript>
+<p style="color:red" class="chat-msg">Pfft!!... javascript is disabled :(</p>
+</noscript>
+
+    <section class="panel welcome-blurb">
+      <h2>Welcome to EK9NO'S SITE!</h2>
+      <img class="pfp" src="profile.png" alt="ek9no">
+      <p>Ello, I'm Ek9no (Spelled as: eko; no).</p>
+      <p>I'm a Self-learner | Cyber Security Researcher | Artist. You can read more about me :3  <a href="/about-me">here</a>!</p>
+      <br><br>
+
+    <marquee onmouseover="this.stop();" onmouseout="this.start();">✧ MORE BLOGS ARE COMING SOON :3 ✧</marquee> 
+
+    <section class="panel">
+      <h2><a href="/blog">Blog</a></h2>
+      <ul class="bloglist">
+      <li><span><span class="arrow">-</span><a href="/blog/Modify-blog">Modifying My Xiaomi Redmi Phone</a></span><span class="date">2026</span></li>
+      <li><span><span class="arrow">-</span><a href="/blog/disturbing-private-school">Disturbing Private School</a></span><span class="date">2026</span></li>
+      <br>
+      <p>Want to Read More?: <a href="/blog">Blogs</a></p> 
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Projects</h2>
+      <h3><a href="https://kekobade.github.io/404_Face-not-found">Face 404</a></h3>
+      <p>A pixel-art canvas game: "404: Face Not Found".</p>
+      <h3><a href="https://github.com/kekobade/easydl">Easydl</a></h3>
+      <p>A Cool CLI Based Music/Video Downloader.</p>
+      <h3><a href="https://github.com/Kekobade/PDF2Docx-OCR">PDF2Docx-OCR</a></h3>
+      <p>Offline tools that OCR "image-only PDFs"/"Text-Base PDF's" into Word files.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Systems status: <span class="ok">OK</span></h2>
+      <p>[<span class="ok"> OK </span>] My Life
+         <br>
+         [<span class="ok"> OK </span>] My Psychology
+         <br>
+         [<span class="ok"> OK </span>] My 2 Braincells
+      </p>
+    </section>
+  </main>
+
+<aside class="sidebar" id="side">
+<nav class="panel">
+      <h2>Specials</h2> 
+      <ul class="sidebar-links">
+        <li><a href="/" id="home-link">✩ Home</a></li>
+        <li><a href="/about-me">✩ About me</a></li>
+        <li><a href="/blog">✩ Blog</a></li>
+        <li><a href="/arts">✩ My Art :3</a></li>
+        <li><a href="https://github.com/Kekobade" target="_blank" rel="noopener">✩ GitHub</a></li>
+        <li><a href="https://x.com/kekowashere" target="_blank" rel="noopener noreferrer">✩ X</a></li>
+      </ul>
+    </nav>
+    <div class="panel">
+      <h2>Status</h2>
+      <p class="status-line">Learning, Coding, Hoping For A New Life And staying curious Endlessly.</p>
+    </div>
+<!-- <div class="panel center">
+      <img src="/ek9no.gif" alt="ek9no's button" width="88" height="31">
+      <textarea readonly>&lt;a href="https://kekobade.github.io/"&gt;&lt;img src="#"&gt;&lt;/a&gt;</textarea>
+      <small>DO hotlink my button!</small>
+    </div> -->
+</aside>
+
+  <footer class="pagefoot">(c) 2026 ek9no. All Rights Reserved.</footer>
+</div>
+<script src="js/main.js"></script>
 </body>
 </html>

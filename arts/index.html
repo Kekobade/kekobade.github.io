@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✧ ek9no's Page | MY ART :3 ✧</title>
+<meta name="description" content="Arts by ek9no">
+<meta name="author" content="kekobade">
+<link rel="icon" href="/keko.png">
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="blog-page">
+<a class="skip-to" href="#gallery-grid">[Skip]</a>
+<button id="menu-toggle" type="button" aria-controls="side" aria-expanded="false">CONFIG</button>
+<div id="menu-backdrop"></div>
+
+<div class="page">
+  <header class="hero">
+    <button class="theme-toggle" type="button" aria-label="Next background" title="Next background"><span class="dot"></span></button>
+    <a href="index.html" id="logo-link"><div class="site-title">EK9NO'S PAGE</div></a>
+  </header>
+
+  <main>
+    <noscript><p style="color:red" class="chat-msg">Pfft!!... javascript is disabled :(</p></noscript>
+
+    <section class="panel gallery-section">
+      <h2>My Arts :3</h2>
+      <p class="gallery-count" id="gallery-count" aria-live="polite"></p>
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <div class="gallery-empty" id="gallery-empty" hidden><p>No arts yet ✧</p></div>
+    </section>
+  </main>
+
+  <aside class="sidebar" id="side">
+    <nav class="panel">
+      <h2>Stars</h2>
+      <ul class="sidebar-links">
+        <li><a href="/" id="home-link">✩ Home</a></li>
+        <li><a href="/about-me">✩ About me</a></li>
+        <li><a href="/blog">✩ Blog</a></li>
+        <li><a href="/arts">✩ My Arts :3</a></li>
+        <li><a href="https://github.com/kekobade" target="_blank" rel="noopener noreferrer">✩ GitHub</a></li>
+        <li><a href="https://x.com/kekowashere" target="_blank" rel="noopener noreferrer">✩ X</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <footer class="pagefoot">(c) 2026 ek9no. All Rights Reserved.</footer>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Art viewer" hidden>
+  <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+  <figure class="lightbox-content">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous">&#8249;</button>
+    <img class="lightbox-img" id="lightbox-img" alt="">
+    <button class="lightbox-next" id="lightbox-next" type="button" aria-label="Next">&#8250;</button>
+    <figcaption class="lightbox-info">
+      <span class="lightbox-title" id="lightbox-title"></span>
+      <span class="lightbox-count" id="lightbox-count"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script src="/js/main.js"></script>
+<script>
+  (() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const grid = $('gallery-grid'), count = $('gallery-count'), empty = $('gallery-empty');
+  const lb = $('lightbox'), lbImg = $('lightbox-img'), lbTitle = $('lightbox-title'), lbCount = $('lightbox-count');
+  const btnPrev = $('lightbox-prev'), btnNext = $('lightbox-next'), btnClose = $('lightbox-close');
+
+  let data = [], idx = -1, opener = null;
+  const label = a => a.title || a.file;
+  const src = a => 'gallery/' + encodeURI(a.file);
+
+  async function load() {
+    try {
+      const res = await fetch('gallery/images.json');
+      if (!res.ok) throw new Error('Could not load gallery/images.json');
+      const json = await res.json();
+      data = Array.isArray(json) ? json : (json.images || []);
+      render();
+    } catch (e) {
+      console.warn('Gallery load error:', e);
+      showEmpty();
+    }
+  }
+
+  function showEmpty() { empty.hidden = false; count.textContent = ''; }
+
+  function render() {
+    grid.textContent = '';
+    if (!data.length) return showEmpty();
+    empty.hidden = true;
+    count.textContent = data.length + (data.length === 1 ? ' art' : ' arts');
+
+    data.forEach((art, i) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gallery-img-wrap';
+      btn.setAttribute('aria-label', 'Open ' + label(art));
+      btn.addEventListener('click', () => open(i, btn));
+
+      const img = new Image();
+      img.src = src(art);
+      img.alt = label(art);
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => card.classList.add('broken'));
+      btn.appendChild(img);
+
+      const info = document.createElement('div');
+      info.className = 'gallery-card-info';
+      info.textContent = label(art);          // textContent: titles can't inject HTML
+
+      card.append(btn, info);
+      grid.appendChild(card);
+    });
+  }
+
+  function show(i) {
+    idx = i;
+    const art = data[i];
+    lbImg.src = src(art);
+    lbImg.alt = label(art);
+    lbTitle.textContent = label(art);
+    lbCount.textContent = (i + 1) + ' / ' + data.length;
+    btnPrev.hidden = i === 0;
+    btnNext.hidden = i === data.length - 1;
+    // warm the neighbours so arrows feel instant
+    [i - 1, i + 1].forEach(n => { if (data[n]) new Image().src = src(data[n]); });
+  }
+
+  function open(i, from) {
+    if (i < 0 || i >= data.length) return;
+    opener = from || null;
+    show(i);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+
+  function close() {
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+    document.body.style.overflow = '';
+    idx = -1;
+    if (opener) opener.focus();
+  }
+
+  const go = d => { const n = idx + d; if (n >= 0 && n < data.length) show(n); };
+
+  btnClose.addEventListener('click', close);
+  $('lightbox-backdrop').addEventListener('click', close);
+  btnPrev.addEventListener('click', () => go(-1));
+  btnNext.addEventListener('click', () => go(1));
+
+  document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'ArrowRight') go(1);
+  });
+
+  // swipe left/right on phones
+  let x0 = null;
+  lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
