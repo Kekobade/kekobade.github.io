@@ -7,7 +7,7 @@
 
 body {
     margin: 0;
-    background: black url("/img/bg.png") center / cover no-repeat fixed;
+    background: black url("/img/little.png") center / cover no-repeat fixed;
     overflow-x: hidden;
     -webkit-font-smoothing: none;
     font-smooth: never;
