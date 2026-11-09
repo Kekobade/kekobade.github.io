@@ -1,8 +1,5 @@
-# ek9no
+# Check out https://kekobade.github.io
 
-Share My Website
-<br>
-<a href="https://kekobade.github.io/" title="ek9no">
-  <img src="https://kekobade.github.io/button_sketch.gif" alt="ek9no" width="88" height="31">
-</a>
-
+<h2>Used:</h2>
+- [Hugo](https://gohugo.io/): static site generators
+- [blinkies.cafe](https://blinkies.cafe/): blinkie generator
