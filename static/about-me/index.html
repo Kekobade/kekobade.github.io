@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✧ ek9no's Page | ABOUT ME ✧</title>
+<meta name="description" content="Do You Really want to know more about me? Silly!">
+<meta name="keywords" content="kekobade, ek9no, JS, JavaScript, discord, nes, emulators, 90s, projects, blue, neocities, personal">
+<meta name="author" content="kekobade">
+<link rel="icon" href="../keko.png">
+<link rel="stylesheet" href="./about.css">
+
+</head>
+<body>
+<svg class="offscreen" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="crispify">
+<feComponentTransfer>
+<feFuncA type="discrete" tableValues="0 1"/>
+</feComponentTransfer>
+</filter>
+</defs>
+</svg>
+<canvas id="bg" width="1280" height="640"></canvas>
+<div id="container">
+        <br><br><br><br>
+<div class="box">
+<span class="ut2"><a href="/">&lt;&lt; Home</a></span>
+</div>
+<br>
+<div class="box">
+<!-- <img src="images/=#" alt="keko" id="keko"> -->
+<span class="ut2">* Ello, I'm Ek9no. I really love to do silly/Nerdy Things. Most of the time i Spend time inside my room and hope for doing something great. I'm A Hobbyistic - Self-Learner/Self-Taught (i'm interested in CS, Hardware Hacking, Homelabing, Making website, Learning New Things, Psychology, etc), An Artist (Music/Sketch) And A Psychologist (i love people to talk about their backstories and i hope for solving them, it's like a puzzle for me)</span> 
+</div>
+        <br>
+<div class="box">
+<span class="ut2">* Personally, i don't like to share my dreams because it really hurts about what i'm right now. But still i will make a great experience and hope for the best i can do to this world And To humanity. "Truly Endless- curiousity! hehe"</span> <!--i wanna die..-->
+</div>
+        <br>
+<div class="box">
+<span class="ut2">* <u>Favorite games</u>: Undertale, Deltarune, OMORI, Minecraft, Touhou Project (speciallly for it's Music), OSU!, Genshin Impact, DDLC, (i really want to play kikiyama) and More!</span>
+</div>
+        <br>
+<div class="box">
+<span class="ut2">* <u>Favorite Artist</u>: Toby Fox, Temmie chang, C418, Lena Raine, Hakdo, Sasuke Haraguchi, YOASOBI, Deco*27, Tokyo Manaka, INABAKUMORI,Kikuo, kikiyama, Kkcwkoh, MARETU, Oliver Tree, Arctic Monkeys, Øneheart, Dreamcorp., Gooseworx, JVKE,  Classical Western Piano And More! (I don't Like to listen to Lyrics Song but i love vocoloid Song :3)</span>
+</div>
+        <br>
+<div class="box">
+<span class="ut2">* I did used to watch anime but when i got dependend on the Internet Too much, i really don't like to watch anime but my favorite Animes are Girls Last Tour, Lucky Star :3, Bocchi The Rock, Horimiya, Demon Slayer O_O, Bluelock, JJK, and More (i can't say anymore) </span>
+</div>
+        <br>
+<div class="box">
+<span class="ut2">* You can find me here: 
+<a href="https://twitter.com/kekowashere" target="_blank">Twitter</a>,
+<a href="#">Discord (kekobade)</a>, <a href="https://github.com/kekobade" target="_blank">Github</a>.
+</span>
+</div>
+        <br>
+<span style="color:gray;font-size:20px;margin:0 auto;display:block;text-align: center;">Thank you For Reading This Far :3</span>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- hehe, more <br> xD-->
+</div>
+
+<audio id="music" preload="auto"></audio>
+
+<script>
+(() => {
+  const PLAYLIST = [
+    "/music/love1.mp3",
+    "/music/mice_on_venus.mp3",
+  ];
+
+  const audio = document.getElementById('music');
+  let i = 0;
+
+  const play = n => {
+    i = (n + PLAYLIST.length) % PLAYLIST.length;
+    audio.src = encodeURI(PLAYLIST[i]);
+    audio.play().catch(() => {});
+  };
+
+  audio.addEventListener('ended', () => play(i + 1));
+
+ play(0);
+  const start = () => {
+    if (audio.paused) audio.play().catch(() => {});
+    ['click', 'touchstart', 'keydown'].forEach(e => removeEventListener(e, start));
+  };
+  ['click', 'touchstart', 'keydown'].forEach(e => addEventListener(e, start));
+})();
+</script>
+</body>
+</html>
+
+<!--btw i did take assets from dimden's about website but i don't like to steal they're js bleh!. don't complain and now stop reading my html!!!-->

@@ -1,0 +1,4 @@
+(function () {var dialog = document.getElementById("viewer");if (!dialog || !dialog.showModal) return;var img = document.getElementById("viewer-img");var title = document.getElementById("viewer-title");
+document.querySelectorAll(".gallery a").forEach(function (a) {a.addEventListener("click", function (e) {e.preventDefault();img.src = a.href;title.textContent = a.dataset.title || "";dialog.showModal();});});
+document.getElementById("viewer-close").addEventListener("click", function () {dialog.close();});
+dialog.addEventListener("click", function (e) {if (e.target === dialog) dialog.close();});})();

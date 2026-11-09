@@ -1,0 +1,1 @@
+{{ with .Params.icon }}{{ if strings.Contains . "." }}<img class="icon" src="{{ . | relURL }}" alt="">{{ else }}<span class="icon">{{ . }}</span>{{ end }}{{ end }}

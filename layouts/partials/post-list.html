@@ -1,0 +1,1 @@
+<ul class="posts">{{ range . }}<li><a href="{{ .RelPermalink }}">[{{ .Date.Format "2006-01-02" }}] - {{ .Title }}</a></li>{{ else }}<li>nothing here yet</li>{{ end }}</ul>

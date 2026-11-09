@@ -1,0 +1,3 @@
+// (function () {var backdrop = document.getElementById("drawer-backdrop");function closeAll() {document.querySelectorAll(".drawer.open").forEach(function (d) {d.classList.remove("open");d.setAttribute("aria-hidden", "true");});backdrop.classList.remove("show");}function openDrawer(id) {closeAll();var d = document.getElementById(id);if (!d) return;d.classList.add("open");d.setAttribute("aria-hidden", "false");backdrop.classList.add("show");}
+// document.addEventListener("click", function (e) {var tab = e.target.closest("[data-drawer]");if (tab) { openDrawer(tab.dataset.drawer); return; }if (e.target.closest("[data-close]") || e.target === backdrop) closeAll();});
+// document.addEventListener("keydown", function (e) {if (e.key === "Escape") closeAll();});})();

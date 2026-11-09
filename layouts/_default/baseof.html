@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="/page.png" />
+<meta name="description" content="Welcome To ek9no's Playground">
+<meta name="keywords" content="kekobade, ek9no, JavaScript, discord, nes, emulators, 90s, frutigear, projects, blue, neocities, personal">
+<meta name="author" content="kekobade">
+<link rel="icon" href="keko.png">
+{{- $page := . -}} {{- $tab := .Title -}} {{- range site.Menus.main -}} {{- if eq (strings.TrimSuffix "/" .URL) (strings.TrimSuffix "/" $page.RelPermalink) -}} {{- $tab = .Name -}} {{- end -}} {{- end -}}
+<title>{{ if .IsHome }}{{ site.Params.tabTitle | default site.Title }}{{ else }}{{ $tab }} | {{ site.Params.tabTitle | default site.Title }}{{ end }}</title>
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}"><link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<script>try {document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";} catch (e) {document.documentElement.dataset.theme = "light";}</script></head>
+<body>
+{{/*
+<button type="button" class="drawer-tab tab-left" data-drawer="drawer-left">{{ site.Params.leftTab | default "Menu" }} &raquo;</button>
+<button type="button" class="drawer-tab tab-right" data-drawer="drawer-right">&laquo; {{ site.Params.rightTab | default "Stuff" }}</button>
+{{ partial "sidebar.html" (dict "id" "drawer-left" "class" "side-left" "title" (site.Params.leftTitle | default (site.Params.leftTab | default "Menu")) "boxes" site.Params.leftBoxes) }}
+{{ partial "sidebar.html" (dict "id" "drawer-right" "class" "side-right" "title" (site.Params.rightTitle | default (site.Params.rightTab | default "Stuff")) "boxes" site.Params.rightBoxes) }}
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+*/}}
+<div class="window">
+<header class="site-header"><h1 class="site-title">{{ site.Title }}</h1></header>
+{{ partial "nav.html" . }}
+<div class="content">
+{{ block "main" . }}{{ end }}
+</div></div>
+{{ if .IsHome }}{{ partial "footer.html" . }}{{ end }}
+{{/*
+<script src="{{ "js/drawer.js" | relURL }}"></script><script src="{{ "js/bgm.js" | relURL }}"></script>
+*/}}
+<script>document.addEventListener("click", function (e) { if (!e.target.closest("#theme-dot, [data-theme-toggle]")) return;var root = document.documentElement;var next = root.dataset.theme === "dark" ? "light" : "dark";root.dataset.theme = next;try { localStorage.setItem("theme", next); } catch (err) {}});</script></body></html>

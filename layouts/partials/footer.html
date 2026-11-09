@@ -1,0 +1,1 @@
+<footer class="site-footer"><div class="footer-stickers">{{ range site.Params.footerStickers }}{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}<img src="{{ .src | relURL }}" alt="{{ .alt }}">{{ if .url }}</a>{{ end }}{{ end }}</div></footer>
