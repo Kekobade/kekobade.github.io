@@ -45,7 +45,7 @@ There’s more I wanted to share. I think this will be my last post for now, but
 **And more**
 # Sub-Reddit u/India Ask (in Ni5arga's Convo)
 
-I'm kekobade (that's my original username), a 16 year old who's really into learning Programming, Hardware Hacking, Open-Source, Linux, Web-Development, Blog Reader, internet rabbit-hole, And I really love to join with those kinds of communities. but when I joined to A coaching junior College (which I don't want to name it for opsec reason).
+I'm kekobade (that's my original username), a [Redacted] year old who's really into learning Programming, Hardware Hacking, Open-Source, Linux, Web-Development, Blog Reader, internet rabbit-hole, And I really love to join with those kinds of communities. but when I joined to A coaching junior College (which I don't want to name it for opsec reason).
 
 Everything changed - my schedule, my sleep cycle, my Personality and more. I can't even balance of doing Hobbyistic and study stuff. I really wanted to give my 80-90% on those stuff (which I had been doing for like 3-4 months and ik I'm giving excuses but there is more to say and I feel something bad would happen in my life).
 
