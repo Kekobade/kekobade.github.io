@@ -10,6 +10,8 @@ Ello, I'm Ek9no (Spelled: Ako-no).
 
 I'm A Hobbyistic - Self-Learner, Web-Traveller, Cyber-Security Researcher, Nature Lover, Artist And More
 
+This site is Only Made for uploading Blogs And Gallery, So if your bored, Check Out My Friend's Website Or The internet Section where you can Find More sites that is Enjoyable <3
+
 You can read more about me :3 <a href="/about-me">here</a>
 
 
