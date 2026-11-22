@@ -73,7 +73,7 @@ title = "\u007B\u007B EK9NO? \u007D\u007D "
   [[params.footerStickers]]
   src = "stickers/github.gif"
   url = "https://github.com/kekobade"
-  alt = "made with hugo"
+  alt = "Github"
 
 [[params.footerStickers]]
   src = "stickers/twitter.gif"
