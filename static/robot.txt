@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kekobade.github.io/sitemap.xml

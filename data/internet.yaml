@@ -1,0 +1,27 @@
+- name: kekobade
+  url: https://kekobade.github.io
+  img: https://kekobade.github.io/ek9no-button.gif
+  
+- name: amdkits
+  url: https://amdkits.me
+  img: https://amdkits.me/kits.gif
+
+- name: namishh
+  url: https://namishh.com
+  img: /stickers/namish-button.png
+
+- name: nithitsuki
+  url: https://nithitsuki.com
+  img: /stickers/nithitsuki-button.png
+
+- name: mizi
+  url: https://mizi.moe/
+  img: https://mizi.moe/mizi.gif
+
+- name: konan-is-a-tsundere
+  url: https://gmkonan.dev
+  img: /stickers/konan-button.png
+
+# - name: kekobade
+#   url: https://kekobade.github.io
+#   img: /stickers/ek9no.gif
