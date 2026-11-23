@@ -1,11 +1,19 @@
 - name: kekobade
   url: https://kekobade.github.io
   img: https://kekobade.github.io/ek9no-button.gif
+
+- name: dimden
+  url: https://dimden.dev/
+  img: https://dimden.dev/services/images/88x31.gif
   
 - name: amdkits
   url: https://amdkits.me
   img: https://amdkits.me/kits.gif
 
+- name: mel
+  url: https://melqtx.com/
+  img: /stickers/mel-button.png
+  
 - name: namishh
   url: https://namishh.com
   img: /stickers/namish-button.png
@@ -21,6 +29,10 @@
 - name: konan-is-a-tsundere
   url: https://gmkonan.dev
   img: /stickers/konan-button.png
+
+- name: jesx
+  url: https://anemoia.moe
+  img: https://anemoia.moe/images/buttons/footer/jesx.gif 
 
 # - name: kekobade
 #   url: https://kekobade.github.io
