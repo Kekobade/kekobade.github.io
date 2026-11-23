@@ -1,1 +1,19 @@
-<ul class="posts">{{ range . }}<li><a href="{{ .RelPermalink }}">[{{ .Date.Format "2006-01-02" }}] - {{ .Title }}</a></li>{{ else }}<li>nothing here yet</li>{{ end }}</ul>
+{{ range . }}
+{{ $page := . }}
+{{ $tags := .Params.tags | default slice }}
+<a class="card" href="{{ .RelPermalink }}">
+  {{ with .Params.cover }}{{ with $page.Resources.GetMatch . }}<img src="{{ .RelPermalink }}" alt="">{{ end }}{{ end }}
+  <div class="info">
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Params.description }}</p>
+    <div>
+      {{ range first 3 $tags }}<span class="tag">{{ . }}</span>{{ end }}
+      {{ if gt (len $tags) 3 }}<span class="tag">{{ sub (len $tags) 3 }} more</span>{{ end }}
+    </div>
+    <small>{{ .Date.Format "January 2nd, 2006" }}</small>
+  </div>
+  <span class="read">{{ .ReadingTime }} MIN READ</span>
+</a>
+{{ else }}
+<p>nothing here yet</p>
+{{ end }}
